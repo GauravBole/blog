@@ -1,0 +1,26 @@
+[
+  {
+    "id": "state-of-the-art-design",
+    "title": "State of the Art Web Design",
+    "date": "2026-06-27",
+    "tags": [
+      "design",
+      "minimalism",
+      "web"
+    ],
+    "excerpt": "What makes a website feel premium? Let's explore modern web aesthetics, typography, and interactive design.",
+    "file": "posts/state-of-the-art-design.md"
+  },
+  {
+    "id": "introducing-my-blog",
+    "title": "Introducing My New Blog",
+    "date": "2026-06-26",
+    "tags": [
+      "meta",
+      "introduction",
+      "web"
+    ],
+    "excerpt": "Welcome to my new elegant static blog site. Here I share my thoughts on technology, design, and development.",
+    "file": "posts/introducing-my-blog.md"
+  }
+]

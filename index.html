@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elegance — A Minimalist Space</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="An elegant, state-of-the-art static blog site. Reading space dedicated to technology, design, and web development.">
+  <meta name="keywords" content="blog, tech, design, minimalism, development, programming">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  
+  <!-- Prism.js Tomorrow Theme for Code Blocks -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Marked.js for Markdown parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
+  <!-- Prism.js for Syntax Highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide/dist/umd/lucide.min.js"></script>
+  
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress" class="reading-progress"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="#" class="logo-link">
+        <h1 class="logo-text">Elegance.</h1>
+      </a>
+      <p class="logo-subtitle">Reflections on design, code, and minimalist philosophy.</p>
+    </div>
+  </header>
+
+  <!-- Main Viewport -->
+  <main class="main-viewport">
+    
+    <!-- HOME VIEW (List, Search, Tags) -->
+    <section id="home-view" class="view-section active">
+      <!-- Search & Filters Container -->
+      <div class="controls-container">
+        <!-- Search Bar -->
+        <div class="search-box">
+          <i data-lucide="search" class="search-icon"></i>
+          <input type="text" id="search-input" placeholder="Search articles by title or tag..." autocomplete="off">
+          <button id="clear-search-btn" class="clear-search-btn" aria-label="Clear search">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        
+        <!-- Tag Filters -->
+        <div class="tags-filter-wrapper">
+          <span class="tags-label">Filter tags:</span>
+          <div id="tags-cloud" class="tags-cloud">
+            <!-- Tags will be dynamically generated -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Articles list -->
+      <div id="posts-grid" class="posts-grid">
+        <!-- Post cards will be dynamically generated -->
+        <div class="loader-container">
+          <div class="spinner"></div>
+          <p>Curating articles...</p>
+        </div>
+      </div>
+      
+      <!-- Pagination -->
+      <div id="pagination-controls" class="pagination-controls hidden">
+        <button id="prev-page-btn" class="btn btn-secondary btn-pagination" aria-label="Previous page">
+          <i data-lucide="chevron-left"></i>
+        </button>
+        <span id="page-indicator" class="page-indicator">1 of 1</span>
+        <button id="next-page-btn" class="btn btn-secondary btn-pagination" aria-label="Next page">
+          <i data-lucide="chevron-right"></i>
+        </button>
+      </div>
+      
+      <!-- No Results State -->
+      <div id="no-results" class="no-results-state hidden">
+        <i data-lucide="inbox" class="no-results-icon"></i>
+        <h3>No articles found</h3>
+        <p>Try resetting the search filters or using a different query.</p>
+        <button id="reset-filters-btn" class="btn btn-primary">Reset Filters</button>
+      </div>
+    </section>
+
+    <!-- POST READING VIEW -->
+    <section id="post-view" class="view-section hidden">
+      <!-- Back Button -->
+      <div class="post-navigation">
+        <a href="#" class="back-link">
+          <i data-lucide="arrow-left" class="back-icon"></i>
+          <span>Back to Articles</span>
+        </a>
+      </div>
+
+      <article class="single-post">
+        <header class="post-header">
+          <div class="post-meta">
+            <span class="post-date"><i data-lucide="calendar"></i> <span id="post-meta-date">Date</span></span>
+            <span class="post-reading-time"><i data-lucide="clock"></i> <span id="post-meta-reading-time">5 min read</span></span>
+          </div>
+          <h2 id="post-title" class="post-title-display">Post Title</h2>
+          <div id="post-tags" class="post-tags-container">
+            <!-- Tags will be dynamically generated -->
+          </div>
+        </header>
+        
+        <!-- Rendered HTML Content -->
+        <div id="post-content" class="post-content-body markdown-body">
+          <!-- Dynamically parsed Markdown will go here -->
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p class="footer-copyright">&copy; 2026 Elegance. All rights reserved.</p>
+      <p class="footer-tagline">Crafted with simplicity &middot; Hosted on GitHub Pages</p>
+    </div>
+  </footer>
+
+  <!-- App Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
